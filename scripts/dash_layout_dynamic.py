@@ -73,3 +73,9 @@ def randomly_named(citycode):
 
 if __name__ == '__main__':
     app.run_server()
+
+
+"""
+I tried so hard and got so far,
+in the end, it doesn't even matter.
+"""

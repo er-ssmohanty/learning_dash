@@ -6,15 +6,15 @@ from dash import html
 from dash.dependencies import Input, Output
 import matplotlib.pyplot as plt
 
-airline_data =  pd.read_csv('../data/airline_data.csv', 
-                                                      encoding = "ISO-8859-1",dtype={'Div1Airport': str, 'Div1TailNum': str, 
+airline_data =  pd.read_csv('../data/airline_data.csv',
+                                                      encoding = "ISO-8859-1",dtype={'Div1Airport': str, 'Div1TailNum': str,
                                    'Div2Airport': str, 'Div2TailNum': str})
 
 
 app = dash.Dash(__name__)
 app.layout = html.Div(children=
                     [
-                        html.H1("Airline Performance Dashboard",style={'textAlign': 'center', 'color': '#503D36', 'font-size': 40}),  
+                        html.H1("Airline Performance Dashboard",style={'textAlign': 'center', 'color': '#503D36', 'font-size': 40}),
                         html.Div([dcc.Input(id="inpyear",value=2010,type='number',style={'height':'50px','font-size':35}),],
                                  style={'font-size': 40}),
                         html.Br(),
@@ -38,7 +38,7 @@ def get_graph(entered_year):
     fig = go.Figure(data=go.Line(x=line_data['Month'], y=line_data['ArrDelay'], marker=dict(color='red')))
 
 
-    
+
     return fig,'Output: {}'.format(entered_year)#,fig2
 
 
