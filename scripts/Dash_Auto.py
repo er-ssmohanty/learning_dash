@@ -14,7 +14,7 @@ from dash import no_update
 #
 
 app  = dash.Dash(__name__)
-app.config.suppress_callback_exceptions = False #True
+app.config.suppress_callback_exceptions = True #True#False
 auto_data = pd.read_csv('../data/automobileEDA.csv',encoding="ISO-8859-1")
 
 app.layout = html.Div(children=[#TASK 3A
