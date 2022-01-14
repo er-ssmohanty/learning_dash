@@ -4,6 +4,7 @@ import dash
 from dash import dcc
 from dash import html
 from dash.dependencies import Input, Output
+import matplotlib.pyplot as plt
 
 airline_data =  pd.read_csv('../data/airline_data.csv', 
                                                       encoding = "ISO-8859-1",dtype={'Div1Airport': str, 'Div1TailNum': str, 
@@ -20,7 +21,7 @@ app.layout = html.Div(children=
                         html.Br(),
                         html.Div([dcc.Graph(id="dergraph")]),
                         html.Div(id='my-output'),
-                        html.Div([dcc.Graph(id="thegraph")]),
+                        #html.Div([dcc.Graph(id="thegraph")]),
                     ]
                      )
 
@@ -28,7 +29,7 @@ app.layout = html.Div(children=
 
 @app.callback(Output(component_id='dergraph',component_property='figure'),
               Output(component_id='my-output', component_property='children'),
-              Output(component_id='thegraph',component_property='figure'),
+              #Output(component_id='thegraph',component_property='figure'),
                Input(component_id='inpyear',component_property='value'))
 
 def get_graph(entered_year):
@@ -36,6 +37,11 @@ def get_graph(entered_year):
     line_data = df.groupby('Month')['ArrDelay'].mean().reset_index()
     fig = go.Figure(data=go.Line(x=line_data['Month'], y=line_data['ArrDelay'], marker=dict(color='red')))
 
-    fig2 = plt.plot(x=line_data['Month'],y=line_data['ArrDelay'])
+
     
-    return fig,'Output: {}'.format(entered_year),fig2
+    return fig,'Output: {}'.format(entered_year)#,fig2
+
+
+
+if __name__ == '__main__':
+    app.run_server()
