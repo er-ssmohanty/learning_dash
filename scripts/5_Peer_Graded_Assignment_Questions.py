@@ -90,11 +90,11 @@ app.layout = html.Div(children=[
                                         html.Div(
                                             dcc.Dropdown(id='input-type',
                                                     options=[
-                                                        dict(label='Yearly Airline Performance Report',value='OPT1'),
-                                                        dict(label='Yearly Airline Delay Report',value='OPT2')
+                                                        {'label':'Yearly Airline Performance Report','value':'OPT1'},
+                                                        {'label':'Yearly Airline Delay Report','value':'OPT2'}
                                                         ],
                                                     placeholder='Select a report type',
-                                                    style={'width':'80%','padding':'3px','font-size':'20px','text-align-last':'center'}
+                                                    style={'width':'80%', 'padding':'3px', 'font-size': '20px', 'text-align-last' : 'center'}
                                             )
                                         ),
                                         # TASK2: Add a dropdown
