@@ -87,7 +87,11 @@ app.layout = html.Div(children=[
                                             html.H2('Report Type:', style={'margin-right': '2em'}),
                                             ]
                                         ),
-                                        html.Div(
+
+                                        # TASK2: Add a dropdown
+                                        # Enter your code below. Make sure you have correct formatting.
+
+
                                             dcc.Dropdown(id='input-type',
                                                     options=[
                                                         {'label':'Yearly Airline Performance Report','value':'OPT1'},
@@ -96,10 +100,6 @@ app.layout = html.Div(children=[
                                                     placeholder='Select a report type',
                                                     style={'width':'80%', 'padding':'3px', 'font-size': '20px', 'text-align-last' : 'center'}
                                             )
-                                        ),
-                                        # TASK2: Add a dropdown
-                                        # Enter your code below. Make sure you have correct formatting.
-
                                     # Place them next to each other using the division style
                                     ], style={'display':'flex'}),
 
